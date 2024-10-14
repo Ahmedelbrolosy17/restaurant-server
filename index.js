@@ -5,14 +5,19 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express();
 const cors = require('cors');
 
-// Enable CORS
+// Allow specific origins and methods for CORS
 app.use(cors({
-  origin: 'https://restaurant-front-r20yy6hh3.vercel.app'
+  origin: 'https://restaurant-front-one.vercel.app', // Your frontend URL
+  methods: ['GET', 'POST', 'OPTIONS'], // Allow GET, POST, and OPTIONS methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow headers
+  credentials: true // If your frontend needs credentials (like cookies or auth tokens)
 }));
+
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
 
+app.options('/checkout', cors());
 
 app.get('/', (req, res)=>{
   res.end("welcome to our server")
