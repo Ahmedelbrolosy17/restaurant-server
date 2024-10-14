@@ -1,0 +1,21 @@
+# Node.js modules
+node_modules/
+
+# Environment variables
+.env
+
+# Build artifacts (if you generate any)
+build/
+
+# Test coverage reports
+coverage/
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Editor temporary files
+*.swp
+
+# Frontend specific files (if your backend and frontend are separate)
+public/
